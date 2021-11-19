@@ -1,4 +1,6 @@
-'use strict';
+"use strict";
+const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const faker = require("faker");
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -10,4 +12,16 @@
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#bootstrap
  */
 
-module.exports = () => {};
+module.exports = async () => {
+  for (let i = 1; i <= 20; i++) {
+    const title = faker.lorem.sentence;
+    await strapi.services.chapters.create({
+      title,
+      slug: title.split(" ").join("-"),
+      description: faker.lorem.paragraph,
+      excerpt: faker.lorem.paragraph,
+    });
+  }
+
+  console.log("20 Courses created");
+};

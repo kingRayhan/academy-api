@@ -536,7 +536,8 @@
               "id",
               "title",
               "excerpt",
-              "description"
+              "description",
+              "slug"
             ],
             "properties": {
               "id": {
@@ -562,6 +563,15 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "slug": {
+                "type": "string"
+              },
+              "Thumbnail": {
+                "type": "string"
+              },
+              "Cover": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

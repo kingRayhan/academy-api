@@ -10,6 +10,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "faker": "^5.5.3",
     "knex": "0.21.18",
     "pg": "^8.7.1",
     "sqlite3": "5.0.0",
@@ -23,6 +24,7 @@
     "strapi-plugin-i18n": "3.6.8",
     "strapi-plugin-upload": "3.6.8",
     "strapi-plugin-users-permissions": "3.6.8",
+    "strapi-provider-upload-cloudinary": "^3.6.8",
     "strapi-utils": "3.6.8"
   },
   "author": {
