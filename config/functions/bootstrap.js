@@ -13,15 +13,16 @@ const faker = require("faker");
  */
 
 module.exports = async () => {
-  for (let i = 1; i <= 20; i++) {
-    const title = faker.lorem.sentence;
-    await strapi.services.chapters.create({
-      title,
-      slug: title.split(" ").join("-"),
-      description: faker.lorem.paragraph,
-      excerpt: faker.lorem.paragraph,
-    });
+  if (process.env.NODE_ENV == "dev") {
+    for (let i = 1; i <= 20; i++) {
+      const title = faker.lorem.sentence(5);
+      await strapi.services.chapters.create({
+        title,
+        slug: title.split(" ").join("-"),
+        description: faker.lorem.paragraph(50),
+        excerpt: faker.lorem.paragraph(20),
+      });
+    }
+    console.log("20 Courses created");
   }
-
-  console.log("20 Courses created");
 };
