@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lessons",
+  "info": {
+    "name": "lessons",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "published": {
+      "type": "boolean",
+      "default": false
+    },
+    "providers": {
+      "type": "enumeration",
+      "enum": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    "chapter": {
+      "via": "lessons",
+      "model": "chapters"
+    }
+  }
+}
